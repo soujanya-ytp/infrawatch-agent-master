@@ -1,0 +1,26 @@
+log_id,timestamp,service,source,level,error_code,message,request_id,host,duration_ms
+LOG001,2024-01-15 15:20:00,api-gateway,nginx,INFO,200,GET /api/checkout 200 OK,REQ001,app-node-01,45
+LOG002,2024-01-15 15:20:15,auth-service,application,INFO,200,User auth successful: user_id=4821,REQ001,auth-node-01,12
+LOG003,2024-01-15 15:20:30,checkout-service,application,INFO,200,Checkout initiated: order_id=ORD001,REQ001,app-node-02,78
+LOG004,2024-01-15 15:20:45,db-service,application,INFO,200,DB query executed: SELECT orders WHERE user_id=4821 duration=23ms,REQ001,db-node-01,23
+LOG005,2024-01-15 15:21:00,cache-service,application,INFO,200,Cache hit: session_4821,REQ002,cache-node-01,5
+LOG006,2024-01-15 15:21:15,api-gateway,nginx,WARN,408,GET /api/checkout 408 Request Timeout,REQ003,app-node-01,3200
+LOG007,2024-01-15 15:21:30,checkout-service,application,WARN,503,DB connection slow: pool_used=85/100 duration=1200ms,REQ003,app-node-02,1200
+LOG008,2024-01-15 15:21:45,db-service,application,WARN,500,Slow query detected: SELECT orders duration=1850ms query_id=4821,REQ003,db-node-01,1850
+LOG009,2024-01-15 15:22:00,api-gateway,nginx,ERROR,500,GET /api/checkout 500 Internal Server Error,REQ004,app-node-01,5000
+LOG010,2024-01-15 15:22:00,checkout-service,application,ERROR,500,connection timeout after 5000ms: upstream db-service unresponsive,REQ004,app-node-02,5000
+LOG011,2024-01-15 15:22:08,api-gateway,nginx,ERROR,500,GET /api/checkout 500 Internal Server Error,REQ005,app-node-01,5000
+LOG012,2024-01-15 15:22:08,checkout-service,application,ERROR,500,connection timeout after 5000ms: DB connection pool exhausted (100/100),REQ005,app-node-02,5000
+LOG013,2024-01-15 15:22:08,db-service,application,CRITICAL,500,DB connection pool exhausted: active=100 max=100 waiting=47 slow_query_id=4821,REQ005,db-node-01,0
+LOG014,2024-01-15 15:22:16,api-gateway,nginx,ERROR,500,GET /api/checkout 500 Internal Server Error,REQ006,app-node-01,5000
+LOG015,2024-01-15 15:22:16,checkout-service,application,ERROR,500,connection timeout after 5000ms: DB connection pool exhausted (100/100),REQ006,app-node-02,5000
+LOG016,2024-01-15 15:22:24,api-gateway,nginx,ERROR,500,GET /api/cart 500 Internal Server Error,REQ007,app-node-01,5000
+LOG017,2024-01-15 15:22:24,cache-service,application,ERROR,503,Cache write failed: backend db-service unreachable,REQ007,cache-node-01,3000
+LOG018,2024-01-15 15:22:32,db-service,application,CRITICAL,500,DB connection pool still exhausted: active=100 max=100 waiting=89 blocking slow_query_id=4821,REQ008,db-node-01,0
+LOG019,2024-01-15 15:22:40,api-gateway,nginx,ERROR,500,GET /api/checkout 500 Internal Server Error,REQ009,app-node-01,5000
+LOG020,2024-01-15 15:22:40,checkout-service,application,ERROR,500,connection timeout after 5000ms: DB connection pool exhausted (100/100),REQ009,app-node-02,5000
+LOG021,2024-01-15 15:23:00,api-gateway,docker,CRITICAL,500,Health check FAILED: checkout-service not responding (3 consecutive failures),REQ010,app-node-01,0
+LOG022,2024-01-15 15:23:00,db-service,application,CRITICAL,500,DB connection pool exhausted: active=100 max=100 waiting=134 killing slow_query_id=4821,REQ010,db-node-01,0
+LOG023,2024-01-15 15:23:15,cache-service,application,ERROR,503,Cache eviction failed: unable to reach db-service for write-through,REQ011,cache-node-01,2500
+LOG024,2024-01-15 15:23:30,auth-service,application,WARN,429,Auth rate limit: 180 req/min exceeds threshold 50 req/min cascade from retry storms,REQ012,auth-node-01,0
+LOG025,2024-01-15 15:24:00,api-gateway,nginx,ERROR,500,GET /api/checkout 500 Internal Server Error circuit breaker OPEN,REQ013,app-node-01,5000

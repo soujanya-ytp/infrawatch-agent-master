@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "result": "Demo complete \u2014 5/5 questions answered",
+  "verification_status": "passed",
+  "steps_executed": [
+    "observe",
+    "reason",
+    "plan",
+    "act",
+    "verify",
+    "complete"
+  ],
+  "tools_used": [
+    "LogRetrieverTool",
+    "LogNormalizeTool",
+    "AnomalyAnalysisTool",
+    "LogOutputVerifierTool",
+    "RunbookGeneratorTool",
+    "IncidentReportTool"
+  ],
+  "execution_time_seconds": 47.83,
+  "errors": [],
+  "metadata": {
+    "retries": 0,
+    "domain": "log-analysis"
+  }
+}

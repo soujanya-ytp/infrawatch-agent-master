@@ -1,0 +1,11 @@
+incident_id,date,time_range,root_cause_type,root_cause_service,affected_services,error_pattern,resolution_minutes,recurrence_days,runbook_id
+INC001,2023-11-02,14:10-14:35,pool_exhausted,db-service,"api-gateway,checkout-service,db-service",DB connection pool exhausted slow query blocking,25,14,RB-HIST-001
+INC002,2023-11-20,09:00-09:18,connection_timeout,db-service,"checkout-service,db-service",connection timeout upstream db-service unresponsive,18,21,RB-HIST-002
+INC003,2023-12-05,22:45-23:10,pool_exhausted,db-service,"api-gateway,checkout-service,db-service,cache-service",DB connection pool exhausted active=100 max=100 waiting cascade,30,10,RB-HIST-003
+INC004,2023-12-18,11:30-11:50,slow_query,db-service,"checkout-service,db-service",slow query detected duration over 1500ms query_id blocking,20,30,RB-HIST-004
+INC005,2024-01-03,16:00-16:22,cache_failure,cache-service,"api-gateway,cache-service",cache write failed backend unreachable eviction failed,22,7,RB-HIST-005
+INC006,2024-01-08,08:15-08:40,pool_exhausted,db-service,"api-gateway,checkout-service,db-service",connection pool exhausted pool_used=100/100 connection timeout,28,12,RB-HIST-006
+INC007,2024-01-10,19:50-20:05,memory_leak,checkout-service,"api-gateway,checkout-service",health check failed checkout-service not responding OOM,15,60,RB-HIST-007
+INC008,2024-01-12,13:20-13:38,connection_timeout,db-service,"checkout-service,db-service,cache-service",connection timeout after 5000ms db-service unresponsive cache write failed,18,25,RB-HIST-008
+INC009,2024-01-13,10:05-10:25,pool_exhausted,db-service,"api-gateway,checkout-service,db-service",DB connection pool exhausted slow_query_id circuit breaker OPEN,20,8,RB-HIST-009
+INC010,2024-01-14,17:30-17:45,auth_overload,auth-service,"api-gateway,auth-service",auth rate limit exceeded retry storm cascade,15,45,RB-HIST-010
